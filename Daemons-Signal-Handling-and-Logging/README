@@ -1,0 +1,23 @@
+Daemons-signal-handling-and-logging
+
+Part I. Creating a daemon. C program that spawns a daemon using the daemon() function.
+
+In the main function, call to signal_handler function is given. A daemon is spawned using daemon(1,1), whereas a while loop is written which transforms the program in infinite loop. A long running process is simulate using an infinite while loop. In the signal handler function, initially a file is created and set in append mode using “a+” key. We can also use w+, but it will write only the last command in the log file. Hence using a+ in this case is appropriate. An if-else loop is used, where we check for any signal which is passed such as, SIGINT, SIGQUIT, SIGTRAP, SIGABRT, SIGKILL, SIGTERM, SIGCONT, and SIGTSTP. For any of the above function, appropriate output is displayed and corresponding action is taken. The “fprintf” function is used so that we can write the commands in Log.txt file and we can also call the timestamp function. The timestamp function is also written which displays the date month year and time in hr:mm:ss format.
+
+Part II. Signal handling.
+
+Expanded daemon-spawning program to include a signal handler for the new daemon that prints out a message to stdout or stderr when receiving the following signals (SIGINT, SIGQUIT, SIGTRAP, SIGABRT, SIGKILL, SIGTERM, SIGCONT, and SIGTSTP). For those of these signals that should exit cleanly, use the exit() command to cleanly shutdown the daemon.
+
+The signal handler function has a void return type and accepts a signal number corresponding to that signal. In the main function, the signal handler is registered to the kernel by passing signal handler as a second argument in the signal function. The first argument is the type of signal. This program demands the use of different types of signals such as, SIGINT, SIGQUIT, SIGTRAP, SIGABRT, SIGKILL, SIGTERM, SIGCONT, and SIGTSTP.
+
+Part III. Logging significant events.
+
+Instead of printing out a message to stdout or stderr for the above signals, added code to create a logfile and push any messages from the signals to this logfile.
+
+FILE *fp= NULL; // Open log file in append mode [Append; open for writing at end-of-file or create for writing if the // file does not exist. ]
+
+fp = fopen ("Log.txt", "a+"); Instead of (“Log.txt”, “a+”); we can also use (“Log.txt”, “w+); But the problem here is, in the log file, it will display only the last signal which is called. Thus, for thus program, the use of append “a+” is advisable.
+
+To print the command in log file, fprintf function is used. fprintf() is used to write data to a text file. In the fprintf() the first argument is the pointer to the file object and the next arguments are the commands which are to be written in the log file. In this program, the signal information is to be written in the log file. Along with it, a timestamp for that particular signal is also to be given. For the time stamp, a different timestamp function is created and it displays the date and time which is then passed into the log file when the corresponding timestamp function is called.
+
+For the signals and time, and header files are required.
