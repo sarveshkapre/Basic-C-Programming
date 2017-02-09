@@ -1,0 +1,11 @@
+Regex
+
+Define regular expressions that represent valid input, then we write C code to enforce those regular expressions on input.
+
+Part I. Define regular expressions.
+
+Defined the following regular expression for usernames and passwords: Usernames: [a-zA-Z0-9]+ Passwords: [a-zA-Z0-9@#$%^&*]+ Wrote a Perl routine that parses each of these code - Perl routine is called from C program using system() function. Both the programs and output files are attached in this folder.
+
+Part II. Validity checking program.
+
+Wrote a C program to accept input and include validity checks to determine whether the input satisfies the regular expressions defined above
