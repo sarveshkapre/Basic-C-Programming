@@ -1,0 +1,7 @@
+canonical
+
+Canonical Representation and Internationalization
+
+C program that accepts a filename or URL and canonicalizes it to a full absolute Linux path.
+
+In this C program, the realpath() function is used to check for the validity of path. Switch case is used to check for legitimate file name. The length of the filename is calculated using “strlen” function and stored it in a variable ‘x’. ‘x-1’ is stored in variable y. If (y== ‘.’) the filename ends in ‘.’ which is invalid filename and it is prevented by displaying an error. The realpath() also checks for valid file extensions such as docx, pdf, txt etc. The maximum allowed length of filename, 256 is calculated using strlen(). Using the #include header file and function file declared in the program, checks whether the file is a device file or a regular file
