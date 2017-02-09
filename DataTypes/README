@@ -1,0 +1,21 @@
+Data-types-in-C
+
+C program that prints out the sizes of the following data types:
+
+char
+int
+unsigned int
+float
+long
+long long
+struct {
+    char first;
+    char *second;
+    int third;
+    int *fourth;
+};
+The requirements for the program.
+• Create an array of pointers to character strings.
+• Allocate memory from the heap for each string using malloc().
+• Use a loop to go through each entry of the array and print out the name of the type and the size of the type.
+• Use printf() statements to create the output using format strings. • In a second loop, print out each type name along with the address to its pointer and the address of the memory storing the type names. • Add the ability for a user to pass a single type name argument to the program. If that type name is in the list, do the same outputs but just with that one type. • Create an initialized, but unused global integer variable notused and add a notused local variable in a function, initialized to a different value than the global variable notused.
